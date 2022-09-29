@@ -1,15 +1,23 @@
+import { Global } from "@emotion/react";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
+import "antd/dist/antd.min.css";
 
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { store } from "./store";
+import { globalStyles } from "./styles";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <Global styles={globalStyles} />
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 
