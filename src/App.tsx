@@ -1,9 +1,10 @@
-import { Switch, Layout, Menu, PageHeader, Row, Col } from "antd";
+import { Switch, Layout, Menu, PageHeader } from "antd";
 import React, { useCallback } from "react";
 
+import BuilderPage from "./pages/builder";
 import { useAppDispatch, useAppSelector } from "./store/hooks";
 import { changeTheme, selectTheme } from "./store/reducer";
-import { StyledLayout } from "./styles";
+import { StyledContent, StyledLayout } from "./styles";
 
 const navItem: { title: string; id: number }[] = [
   { title: "Builder", id: 1 },
@@ -14,7 +15,7 @@ const navItem: { title: string; id: number }[] = [
 function App(): React.ReactElement {
   const theme = useAppSelector(selectTheme);
   const dispatch = useAppDispatch();
-  const { Header, Content } = Layout;
+  const { Header } = Layout;
 
   const handleThemeChange = useCallback(() => {
     dispatch(changeTheme(!theme.isInDarkMode));
@@ -36,17 +37,14 @@ function App(): React.ReactElement {
             />,
           ]}
         />
-        <Menu mode="horizontal">
-          {navItem.map((item) => (
-            <Menu.Item key={item.id}>{item.title}</Menu.Item>
-          ))}
-        </Menu>
+        <Menu
+          mode="horizontal"
+          items={navItem.map((item) => ({ label: item.title, key: item.id }))}
+        />
       </Header>
-      <Content>
-        <Row>
-          <Col>Content</Col>
-        </Row>
-      </Content>
+      <StyledContent>
+        <BuilderPage />
+      </StyledContent>
     </StyledLayout>
   );
 }

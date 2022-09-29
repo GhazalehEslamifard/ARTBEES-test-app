@@ -17,3 +17,7 @@ export const StyledLayout = styled(Layout)`
     padding: unset;
   }
 `;
+
+export const StyledContent = styled(Layout.Content)`
+  padding: 32px;
+`;
