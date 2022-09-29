@@ -1,15 +1,16 @@
 import { Switch, Layout, Menu, PageHeader } from "antd";
 import React, { useCallback } from "react";
+import { Link } from "react-router-dom";
 
-import BuilderPage from "./pages/builder";
+import ApplicationRoutes from "./routes";
 import { useAppDispatch, useAppSelector } from "./store/hooks";
 import { changeTheme, selectTheme } from "./store/reducer";
 import { StyledContent, StyledLayout } from "./styles";
 
-const navItem: { title: string; id: number }[] = [
-  { title: "Builder", id: 1 },
-  { title: "Content", id: 2 },
-  { title: "Biography", id: 3 },
+const navItem: { title: string; id: number; path: string }[] = [
+  { title: "Builder", id: 1, path: "/" },
+  { title: "Content", id: 2, path: "/content" },
+  { title: "Biography", id: 3, path: "/biography" },
 ];
 
 function App(): React.ReactElement {
@@ -39,11 +40,14 @@ function App(): React.ReactElement {
         />
         <Menu
           mode="horizontal"
-          items={navItem.map((item) => ({ label: item.title, key: item.id }))}
+          items={navItem.map((item) => ({
+            label: <Link to={item.path}>{item.title}</Link>,
+            key: item.id,
+          }))}
         />
       </Header>
       <StyledContent>
-        <BuilderPage />
+        <ApplicationRoutes />
       </StyledContent>
     </StyledLayout>
   );
