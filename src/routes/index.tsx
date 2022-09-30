@@ -1,13 +1,15 @@
 import { Route, Routes } from "react-router-dom";
 
+import BiographyPage from "../pages/biography";
 import BuilderPage from "../pages/builder";
+import ContentPage from "../pages/content";
 
-export function ApplicationRoutes(): React.ReactElement {
+function ApplicationRoutes(): React.ReactElement {
   return (
     <Routes>
       <Route path="/" element={<BuilderPage />} />
-      <Route path="/content" element={<BookList />} />
-      <Route path="/biography" element={<BookList />} />
+      <Route path="/content" element={<ContentPage />} />
+      <Route path="/biography" element={<BiographyPage />} />
     </Routes>
   );
 }

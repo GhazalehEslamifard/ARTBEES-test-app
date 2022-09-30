@@ -1,4 +1,4 @@
-import styled from "@emotion/styled/macro";
+import styled from "@emotion/styled";
 import ReactQuill from "react-quill";
 
 export const StyledReactQuill = styled(ReactQuill)`

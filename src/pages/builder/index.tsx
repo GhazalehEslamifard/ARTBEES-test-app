@@ -13,7 +13,7 @@ const modules = {
 };
 
 function BuilderPage(): React.ReactElement {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState<string>("");
 
   const handleEditorChange = useCallback((value: string) => {
     setInput(value);
@@ -42,7 +42,9 @@ function BuilderPage(): React.ReactElement {
         />
       </Form.Item>
       <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button htmlType="submit">Save</Button>
+        <Button htmlType="submit" disabled={input === ""}>
+          Save
+        </Button>
       </Form.Item>
     </Form>
   );
