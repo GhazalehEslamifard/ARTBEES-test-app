@@ -1,5 +1,5 @@
 import { Row, Col } from "antd";
-import React from "react";
+import React, { memo } from "react";
 
 import PopUpComponent from "../../components/pop-up";
 
@@ -45,4 +45,4 @@ class BiographyPage extends React.Component<
   }
 }
 
-export default BiographyPage;
+export default memo(BiographyPage);

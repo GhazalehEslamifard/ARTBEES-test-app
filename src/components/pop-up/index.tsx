@@ -1,11 +1,15 @@
-import React, { useCallback } from "react";
+import { useCallback, memo } from "react";
 
 import { useAppSelector } from "../../store/hooks";
-import { selectTheme } from "../../store/reducer";
+import { selectTheme } from "../../store/theme-reducer";
 
 import { Wrapper, StyledButton } from "./styles";
 
-function PopUpComponent({ onClose }: { onClose: () => void }) {
+function PopUpComponent({
+  onClose,
+}: {
+  onClose: () => void;
+}): React.ReactElement {
   const theme = useAppSelector(selectTheme);
 
   const close = useCallback(() => {
@@ -26,4 +30,4 @@ function PopUpComponent({ onClose }: { onClose: () => void }) {
   );
 }
 
-export default PopUpComponent;
+export default memo(PopUpComponent);

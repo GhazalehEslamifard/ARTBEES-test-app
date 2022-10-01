@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState, memo } from "react";
 
 import { Container } from "./styles";
 
@@ -17,4 +17,4 @@ function ContentPage(): React.ReactElement {
   return <Container dangerouslySetInnerHTML={{ __html: value }} />;
 }
 
-export default ContentPage;
+export default memo(ContentPage);

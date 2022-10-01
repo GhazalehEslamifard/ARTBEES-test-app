@@ -1,10 +1,10 @@
 import { Switch, Layout, Menu, PageHeader } from "antd";
-import React, { useCallback } from "react";
+import { useCallback, memo } from "react";
 import { Link } from "react-router-dom";
 
 import ApplicationRoutes from "./routes";
 import { useAppDispatch, useAppSelector } from "./store/hooks";
-import { changeTheme, selectTheme } from "./store/reducer";
+import { changeTheme, selectTheme } from "./store/theme-reducer";
 import { StyledContent, StyledLayout } from "./styles";
 
 const navItem: { title: string; id: number; path: string }[] = [
@@ -53,4 +53,4 @@ function App(): React.ReactElement {
   );
 }
 
-export default App;
+export default memo(App);

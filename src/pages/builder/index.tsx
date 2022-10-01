@@ -1,5 +1,5 @@
 import { Button, Form } from "antd";
-import React, { useCallback, useState } from "react";
+import { useCallback, useState, memo } from "react";
 import { Quill } from "react-quill";
 
 import { StyledReactQuill } from "./styles";
@@ -50,4 +50,4 @@ function BuilderPage(): React.ReactElement {
   );
 }
 
-export default BuilderPage;
+export default memo(BuilderPage);

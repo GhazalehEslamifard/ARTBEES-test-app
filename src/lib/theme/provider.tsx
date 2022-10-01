@@ -1,12 +1,14 @@
-import React from "react";
-
 import { useAppSelector } from "../../store/hooks";
-import { selectTheme } from "../../store/reducer";
+import { selectTheme } from "../../store/theme-reducer";
 
 import DarkTheme from "./dark-theme";
 import LightTheme from "./light-theme";
 
-export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+export function ThemeProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}): React.ReactElement {
   const theme = useAppSelector(selectTheme);
 
   return (
@@ -15,4 +17,4 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
       {children}
     </>
   );
-};
+}
