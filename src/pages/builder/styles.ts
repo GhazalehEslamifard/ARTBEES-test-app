@@ -16,4 +16,8 @@ export const StyledReactQuill = styled(ReactQuill)`
     content: "Huge";
     font-size: 18px !important;
   }
+
+  .ql-toolbar.ql-snow {
+    background: #cccccc !important;
+  }
 `;

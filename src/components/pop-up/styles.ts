@@ -1,9 +1,8 @@
 import styled from "@emotion/styled";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ isInDarkMode: boolean }>`
   display: flex;
   flex-direction: column;
-  background: white;
   width: 300px;
   padding: 16px;
   position: fixed;
@@ -11,13 +10,15 @@ export const Wrapper = styled.div`
   overflow: auto;
   top: calc(50% - 150px);
   left: calc(50% - 150px);
-  box-shadow: 0 0 6px 2px lightgray;
+  box-shadow: 0 0 6px 2px
+    ${({ isInDarkMode }) => (isInDarkMode ? "#575757" : "#b8b8b8")};
+  background: ${({ isInDarkMode }) => (isInDarkMode ? "#2e2e2e" : "#ffffff")};
 `;
 
 export const StyledButton = styled.button`
   all: unset;
   background: dodgerblue;
-  color: white;
+  color: #ffffff;
   padding: 4px 6px;
-  margin-left: auto;
+  margin-left: auto !important;
 `;

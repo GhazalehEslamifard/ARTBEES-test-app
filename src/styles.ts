@@ -13,8 +13,8 @@ export const StyledLayout = styled(Layout)`
   overflow: auto;
 
   & > .ant-layout-header {
-    height: unset;
-    padding: unset;
+    height: unset !important;
+    padding: unset !important;
   }
 `;
 

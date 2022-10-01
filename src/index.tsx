@@ -3,11 +3,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-
-import "antd/dist/antd.min.css";
 import "react-quill/dist/quill.snow.css";
 
 import App from "./App";
+import { ThemeProvider } from "./lib/theme/provider";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./store";
 import { globalStyles } from "./styles";
@@ -18,10 +17,12 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Global styles={globalStyles} />
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <ThemeProvider>
+        <Global styles={globalStyles} />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ThemeProvider>
     </Provider>
   </React.StrictMode>
 );
